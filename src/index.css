@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500&family=Tajawal&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-[Tajawal];
+  }
+  li {
+    @apply px-2;
+    font-size: 0.85rem;
+  }
+  p {
+    font-family: "Catamaran", sans-serif;
+  }
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(#54e45e, #efb16a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+.content-div {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+  width: auto;
+}
+
+/* @media (max-width: 768px) {
+  .content-div {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-div {
+    max-width: 300px;
+  }
+} */
+
+.img-side {
+  position: relative;
+}
+
+.work-emoji {
+  bottom: -15px;
+  position: absolute;
+  right: 24px;
+  z-index: 10;
+  width: 5rem !important;
+}
+
+/* .desk-img {
+  height: 35rem;
+  width: 41rem;
+  border-radius: 1.7rem;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 0px 10px;
+} */
+
+.img-side span {
+  background-color: rgb(255, 255, 255);
+  bottom: -80px;
+  height: 12rem;
+  position: absolute;
+  right: -30px;
+  width: 12rem;
+  border-radius: 50%;
+}
+
+.img-side span img {
+  width: 15rem;
+  animation: rotate 9s infinite linear;
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 648px) {
+  .work-emoji {
+    display: none;
+  }
+  .img-side {
+    position: static;
+  }
+
+  .img-side span {
+    display: none;
+  }
+}

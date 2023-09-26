@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    body {
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: inline;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="date"],
+    select,
+    textarea {
+      width: 50%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    #itineraryContainer {
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+      vertical-align: middle;
+	  display: inline;
+    }
+
+    @media screen and (max-width: 600px) {
+      form {
+        padding: 10px;
+      }
+    }
+  </style>
+<form action="/submit_form" method="POST">
+<h2>Pre-Travel Consultation Form</h2>
+<section class="p1">
+  <h3>Travel Itinerary</h3>  
+  <label for="departure">Departure Date:</label>
+  <input type="date" id="departure" name="departure"><br>  
+  <label for="return">Return Date:</label>
+  <input type="date" id="return" name="return"><br>
+  
+  <div id="itineraryContainer">
+   <label for="destination">Destinations:</label><br>
+   </div>
+  <button type="button" onclick="addDestination()">Add another destination</button>
+ </section> 
+ <section class="p2">
+  <h3>Trip Details</h3>
+  <label for="purpose">Purpose of Trip:</label><br>
+  <select id="purpose" name="purpose"  onchange="checkOther()">
+    <option value="Business" selected="selected">Business</option>
+    <option value="Tourist">Tourist</option>
+    <option value="Student">Student</option>
+    <option value="Missionary">Missionary/Aid</option>
+    <option value="Medical">Medical</option>
+	<option value="VFR">Visiting Family</option>
+    <option value="Sport">Sport</option>
+	 <option value="Migrant">Migrating</option>
+    <option value="Other">Other</option>
+  </select>  <div id="otherPurpose" style="display:none;">
+    <label for="otherInput">Please Specify:</label><input type="text" id="otherInput" name="otherInput"><br>
+  </div>
+  <br><br>
+  
+  <label for="activities">Trip Activities:</label><br>
+  <label for="touristAreas">Visit only tourist's areas or major cities:</label>
+  <input type="radio" id="touristAreasYes" name="touristAreas" value="yes">
+  <label for="touristAreasYes">Yes</label>
+  <input type="radio" id="touristAreasNo" name="touristAreas" value="no">
+  <label for="touristAreasNo">No</label>
+  <br>
+  <label for="ruralCommunities">Will spend time in rural communities:</label>
+  <input type="radio" id="ruralCommunitiesYes" name="ruralCommunities" value="yes">
+  <label for="ruralCommunitiesYes">Yes</label>
+  <input type="radio" id="ruralCommunitiesNo" name="ruralCommunities" value="no">
+  <label for="ruralCommunitiesNo">No</label>
+  <br>
+  <label for="hiking">Go hiking or backpacking:</label>
+  <input type="radio" id="hikingYes" name="hiking" value="yes">
+  <label for="hikingYes">Yes</label>
+  <input type="radio" id="hikingNo" name="hiking" value="no">
+  <label for="hikingNo">No</label>
+  <br>
+  <label for="highAltitudes">Travel to high altitudes:</label>
+  <input type="radio" id="highAltitudesYes" name="highAltitudes" value="yes">
+  <label for="highAltitudesYes">Yes</label>
+  <input type="radio" id="highAltitudesNo" name="highAltitudes" value="no">
+  <label for="highAltitudesNo">No</label>
+  <br>
+  <label for="pilgrimage">Pilgrimage to Mecca:</label>
+  <input type="radio" id="pilgrimageYes" name="pilgrimage" value="yes">
+  <label for="pilgrimageYes">Yes</label>
+  <input type="radio" id="pilgrimageNo" name="pilgrimage" value="no">
+  <label for="pilgrimageNo">No</label>
+  <br>
+  <label for="religiousActivities">Other religious activities:</label>
+  <input type="radio" id="religiousActivitiesYes" name="religiousActivities" value="yes">
+  <label for="religiousActivitiesYes">Yes</label>
+  <input type="radio" id="religiousActivitiesNo" name="religiousActivities" value="no">
+  <label for="religiousActivitiesNo">No</label>
+  <br>
+  <label for="scubaDiving">Scuba dive or water activities:</label>
+  <input type="radio" id="scubaDivingYes" name="scubaDiving" value="yes">
+  <label for="scubaDivingYes">Yes</label>
+  <input type="radio" id="scubaDivingNo" name="scubaDiving" value="no">
+  <label for="scubaDivingNo">No</label>
+  <br>
+  <label for="safari">Safari:</label>
+  <input type="radio" id="safariYes" name="safari" value="yes">
+  <label for="safariYes">Yes</label>
+  <input type="radio" id="safariNo" name="safari" value="no">
+  <label for="safariNo">No</label>
+  <br>
+  <label for="jungleTravel">Jungle travel:</label>
+  <input type="radio" id="jungleTravelYes" name="jungleTravel" value="yes">
+  <label for="jungleTravelYes">Yes</label>
+  <input type="radio" id="jungleTravelNo" name="jungleTravel" value="no">
+  <label for="jungleTravelNo">No</label>
+  <br>
+  <label for="cruiseShip">Cruise ship:</label>
+  <input type="radio" id="cruiseShipYes" name="cruiseShip" value="yes">
+  <label for="cruiseShipYes">Yes</label>
+  <input type="radio" id="cruiseShipNo" name="cruiseShip" value="no">
+  <label for="cruiseShipNo">No</label>
+  <br>
+  <label for="otherActivity">Other:</label>
+  <input type="radio" id="otherActivityYes" name="otherActivity" value="yes" onchange="checkOtherActivity()">
+  <label for="otherActivityYes">Yes</label>
+  <input type="radio" id="otherActivityNo" name="otherActivity" value="no" onchange="checkOtherActivity()">
+  <label for="otherActivityNo">No</label>
+  <input type="text" id="otherActivityDetails" name="otherActivityDetails" style="display:none;">
+  <br>  
+  <label for="companion">Trip Companion:</label><br>
+  <select id="companion" name="companion">
+    <option value="solo">Travel Solo</option>
+    <option value="seniors">Travel with Seniors</option>
+    <option value="kids">Travel with Kids</option>
+    <option value="partner">Travel with my Partner Only</option>
+    <option value="group">Travel with Group</option>
+  </select><br>
+ </section> 
+  <section class="p3">
+  <h3>Vaccination History</h3>
+<input type="checkbox" id="hepa" name="hepa" value="Hepatitis A">
+<label for="hepa"> Hepatitis A</label><br>
+
+<input type="checkbox" id="hepb" name="hepb" value="Hepatitis B">
+<label for="hepb"> Hepatitis B</label><br>
+
+<input type="checkbox" id="typhoid" name="typhoid" value="Typhoid">
+<label for="typhoid"> Typhoid</label><br>
+
+<input type="checkbox" id="tetanus" name="tetanus" value="Tetanus">
+<label for="tetanus"> Tetanus/Diphtheria/Pertussis</label><br>
+
+<input type="checkbox" id="varicella" name="varicella" value="Varicella">
+<label for="varicella"> Chicken Pox/Varicella</label><br>
+
+<input type="checkbox" id="polio" name="polio" value="Polio">
+<label for="polio"> Polio</label><br>
+
+<input type="checkbox" id="measles" name="measles" value="Measles">
+<label for="measles"> Measles/MMR</label><br>
+
+<input type="checkbox" id="covid19" name="covid19" value="COVID19">
+<label for="covid19"> COVID-19</label><br>
+
+<input type="checkbox" id="yellowFever" name="yellowFever" value="Yellow Fever">
+<label for="yellowFever"> Yellow Fever</label><br>
+
+<input type="checkbox" id="rabies" name="rabies" value="Rabies">
+<label for="rabies"> Rabies</label><br>
+
+<input type="checkbox" id="meningitis" name="meningitis" value="Meningitis">
+<label for="meningitis"> Meningitis</label><br>
+
+<input type="checkbox" id="japaneseEncephalitis" name="japaneseEncephalitis" value="Japanese Encephalitis">
+<label for="japaneseEncephalitis"> Japanese Encephalitis</label><br>
+
+<input type="checkbox" id="tickBorneEncephalitis" name="tickBorneEncephalitis" value="Tick-borne Encephalitis">
+<label for="tickBorneEncephalitis"> Tick-borne Encephalitis</label><br>
+
+<input type="checkbox" id="pneumococcal" name="pneumococcal" value="Pneumococcal">
+<label for="pneumococcal"> Pneumonia</label><br>
+
+<input type="checkbox" id="influenza" name="influenza" value="Influenza">
+<label for="influenza"> Influenza (flu shot)</label><br>
+
+<input type="checkbox" id="cholera" name="cholera" value="Cholera">
+<label for="cholera"> Cholera/Travelers diarrhea (Dukoral)</label><br>
+
+<input type="checkbox" id="otherVaccination" name="otherVaccination" value="Other">
+<label for="otherVaccination"> Other:</label>
+<input type="text" id="otherVaccinationDetails" name="otherVaccinationDetails"><br>
+</section>
+<section class="p4">
+<h3>Allergy Information</h3>
+<input type="checkbox" id="penicillin" name="penicillin" value="Penicillin">
+<label for="penicillin"> Penicillin</label><br>
+
+<input type="checkbox" id="eggs" name="eggs" value="Eggs">
+<label for="eggs"> Eggs</label><br>
+
+<input type="checkbox" id="sulfaDrugs" name="sulfaDrugs" value="Sulfa drugs (e.g. Septra, Bactrim)">
+<label for="sulfaDrugs"> Sulfa drugs (e.g. Septra, Bactrim)</label><br>
+
+<input type="checkbox" id="ciprofloxacin" name="ciprofloxacin" value="Ciprofloxacin">
+<label for="ciprofloxacin"> Ciprofloxacin</label><br>
+
+<input type="checkbox" id="azithromycin" name="azithromycin" value="Azithromycin">
+<label for="azithromycin"> Azithromycin</label><br>
+
+<input type="checkbox" id="doxycycline" name="doxycycline" value="Doxycycline">
+<label for="doxycycline"> Doxycycline</label><br>
+
+<input type="checkbox" id="malarone" name="malarone" value="Malarone (atovaquone)">
+<label for="malarone"> Malarone (atovaquone)</label><br>
+
+<input type="checkbox" id="neomycin" name="neomycin" value="Neomycin">
+<label for="neomycin"> Neomycin</label><br>
+
+<input type="checkbox" id="latex" name="latex" value="Latex">
+<label for="latex"> Latex</label><br>
+
+<input type="checkbox" id="gelatin" name="gelatin" value="Gelatin">
+<label for="gelatin"> Gelatin</label><br>
+
+<input type="checkbox" id="thimerisol" name="thimerisol" value="Thimerisol / Mercury">
+<label for="thimerisol"> Thimerisol / Mercury</label><br>
+
+<input type="checkbox" id="otherAntibiotics" name="otherAntibiotics" value="Other antibiotics">
+<label for="otherAntibiotics"> Other antibiotics</label><br>
+
+<input type="checkbox" id="otherAllergy" name="otherAllergy" value="Other">
+<label for="otherAllergy"> Other:</label>
+<input type="text" id="otherAllergyDetails" name="otherAllergyDetails"><br>
+</section>
+<section class="p5">
+<h3>Personal Medical History</h3>
+<label for="sickToday">Are you sick today?</label><br>
+<input type="radio" id="sickTodayYes" name="sickToday" value="Yes">
+<label for="sickTodayYes">Yes</label>
+<input type="radio" id="sickTodayNo" name="sickToday" value="No">
+<label for="sickTodayNo">No</label><br>
+
+<label for="recentVaccination">Have you received any vaccinations in the past 4 weeks?</label><br>
+<input type="radio" id="recentVaccinationYes" name="recentVaccination" value="Yes">
+<label for="recentVaccinationYes">Yes</label>
+<input type="radio" id="recentVaccinationNo" name="recentVaccination" value="No">
+<label for="recentVaccinationNo">No</label><br>
+
+<label for="vaccineReaction">Have you ever had a serious reaction after receiving a vaccination, such as hives, rash, wheezing, difficulty breathing, or shock?</label><br>
+<input type="radio" id="vaccineReactionYes" name="vaccineReaction" value="Yes">
+<label for="vaccineReactionYes">Yes</label>
+<input type="radio" id="vaccineReactionNo" name="vaccineReaction" value="No">
+<label for="vaccineReactionNo">No</label><br>
+
+<label for="injectionFaint">Have you even fainted from an injection or from having your blood drawn?</label><br>
+<input type="radio" id="injectionFaintYes" name="injectionFaint" value="Yes">
+<label for="injectionFaintYes">Yes</label>
+<input type="radio" id="injectionFaintNo" name="injectionFaint" value="No">
+<label for="injectionFaintNo">No</label><br>
+
+<label for="bloodTransfusion">During the past three months, have you received a transfusion of blood or plasma, or been given a medicine called immune globulin or Rho-gam?</label><br>
+<input type="radio" id="bloodTransfusionYes" name="bloodTransfusion" value="Yes">
+<label for="bloodTransfusionYes">Yes</label>
+<input type="radio" id="bloodTransfusionNo" name="bloodTransfusion" value="No">
+<label for="bloodTransfusionNo">No</label><br>
+
+<label for="diabetes">Do you have diabetes?</label><br>
+<input type="radio" id="diabetesYes" name="diabetes" value="Yes">
+<label for="diabetesYes">Yes</label>
+<input type="radio" id="diabetesNo" name="diabetes" value="No">
+<label for="diabetesNo">No</label><br>
+
+<label for="tuberculosis">Have you ever tested positive for tuberculosis?</label><br>
+<input type="radio" id="tuberculosisYes" name="tuberculosis" value="Yes">
+<label for="tuberculosisYes">Yes</label>
+<input type="radio" id="tuberculosisNo" name="tuberculosis" value="No">
+<label for="tuberculosisNo">No</label><br>
+
+<label for="altitudeSickness">When at altitudes above 6,000 feet, have you ever had headache, dizziness or felt short of breath?</label><br>
+<input type="radio" id="altitudeSicknessYes" name="altitudeSickness" value="Yes">
+<label for="altitudeSicknessYes">Yes</label>
+<input type="radio" id="altitudeSicknessNo" name="altitudeSickness" value="No">
+<label for="altitudeSicknessNo">No</label><br>
+
+<label for="corticosteroids">Do you or any person you are in close contact with take cortisone, prednisone, steroids, chemotherapy (anti-cancer drugs) or radiation therapy?</label><br>
+<input type="radio" id="corticosteroidsYes" name="corticosteroids" value="Yes">
+<label for="corticosteroidsYes">Yes</label>
+<input type="radio" id="corticosteroidsNo" name="corticosteroids" value="No">
+<label for="corticosteroidsNo">No</label><br>
+
+<label for="cancerLeukemiaHIV">Do you, or any person you are in close contact with, have cancer, leukemia, HIV/AIDS, or any other auto immune problem?</label><br>
+<input type="radio" id="cancerLeukemiaHIVYes" name="cancerLeukemiaHIV" value="Yes">
+<label for="cancerLeukemiaHIVYes">Yes</label>
+<input type="radio" id="cancerLeukemiaHIVNo" name="cancerLeukemiaHIV" value="No">
+<label for="cancerLeukemiaHIVNo">No</label><br>
+
+<label for="kidneyProblems">Do you have severe kidney problems?</label><br>
+<input type="radio" id="kidneyProblemsYes" name="kidneyProblems" value="Yes">
+<label for="kidneyProblemsYes">Yes</label>
+<input type="radio" id="kidneyProblemsNo" name="kidneyProblems" value="No">
+<label for="kidneyProblemsNo">No</label><br>
+
+<label for="G6PDDeficiency">Do you have G6PD deficiency? If yes, you should avoid certain anti-malaria medications</label><br>
+<input type="radio" id="G6PDDeficiencyYes" name="G6PDDeficiency" value="Yes">
+<label for="G6PDDeficiencyYes">Yes</label>
+<input type="radio" id="G6PDDeficiencyNo" name="G6PDDeficiency" value="No">
+<label for="G6PDDeficiencyNo">No</label><br>
+
+<label for="nerveCondition">Do you have an active nerve condition? Do you have a history of seizure or Guillain Barre Syndrome?</label><br>
+<input type="radio" id="nerveConditionYes" name="nerveCondition" value="Yes">
+<label for="nerveConditionYes">Yes</label>
+<input type="radio" id="nerveConditionNo" name="nerveCondition" value="No">
+<label for="nerveConditionNo">No</label><br>
+
+<label for="thymusProblem">Have you had your thymus gland removed, or problems with your thymus, such as myasthenia gravis, DIGeorge syndrome or thymoma?</label><br>
+<input type="radio" id="thymusProblemYes" name="thymusProblem" value="Yes">
+<label for="thymusProblemYes">Yes</label>
+<input type="radio" id="thymusProblemNo" name="thymusProblem" value="No">
+<label for="thymusProblemNo">No</label><br>
+
+<label for="heartProblems">Do you have heart problems or a cardiac arrhythmia or irregularity?</label><br>
+<input type="radio" id="heartProblemsYes" name="heartProblems" value="Yes">
+<label for="heartProblemsYes">Yes</label>
+<input type="radio" id="heartProblemsNo" name="heartProblems" value="No">
+<label for="heartProblemsNo">No</label><br>
+
+<label for="bleedingProblems">Do you have bleeding problems, take coumadin or blood thinners or aspirin?</label><br>
+<input type="radio" id="bleedingProblemsYes" name="bleedingProblems" value="Yes">
+<label for="bleedingProblemsYes">Yes</label>
+<input type="radio" id="bleedingProblemsNo" name="bleedingProblems" value="No">
+<label for="bleedingProblemsNo">No</label><br>
+
+<label for="lungDisease">Do you have lung disease, asthma, chronic bronchitis, emphysema, or shortness of breath?</label><br>
+<input type="radio" id="lungDiseaseYes" name="lungDisease" value="Yes">
+<label for="lungDiseaseYes">Yes</label>
+<input type="radio" id="lungDiseaseNo" name="lungDisease" value="No">
+<label for="lungDiseaseNo">No</label><br>
+
+<label for="insomniaNightmares">Do you experience insomnia or nightmares?</label><br>
+<input type="radio" id="insomniaNightmaresYes" name="insomniaNightmares" value="Yes">
+<label for="insomniaNightmaresYes">Yes</label>
+<input type="radio" id="insomniaNightmaresNo" name="insomniaNightmares" value="No">
+<label for="insomniaNightmaresNo">No</label><br>
+
+<label for="depressionHistory">Do you have a history of depression or psychiatric disorders?</label><br>
+<input type="radio" id="depressionHistoryYes" name="depressionHistory" value="Yes">
+<label for="depressionHistoryYes">Yes</label>
+<input type="radio" id="depressionHistoryNo" name="depressionHistory" value="No">
+<label for="depressionHistoryNo">No</label><br>
+
+<label for="medicalHistory">Any medical condition that warrants regular follow-up?</label>  (please list if you have)<br>
+<textarea id="medicalHistory" name="medicalHistory" rows="4" cols="50"></textarea><br>
+<label for="currentMeds">Current Medications:</label> (please list if any)<br>
+<textarea id="currentMeds" name="currentMeds" rows="4" cols="50"></textarea>
+</section> 
+ 
+ <input type="submit" value="Submit">
+</form> 
+<script>
+  let destinationCount = 0;
+
+  // Function to add destination input
+  function addDestination() {
+    destinationCount++;
+
+    let container = document.getElementById('itineraryContainer');
+
+    let destinationLabel = document.createElement('label');
+    destinationLabel.textContent = "Country:";
+
+    let destinationInput = document.createElement('input');
+    destinationInput.type = "text";
+    destinationInput.id = `destination${destinationCount}`;
+    destinationInput.name = `destination${destinationCount}`;
+
+    // Append elements to the container
+    container.appendChild(destinationLabel);
+    container.appendChild(destinationInput);
+  }
+
+  // Add the first destination input when the page loads
+  addDestination();
+  
+  // Function to check if 'Other' option is selected
+  function checkOther() {
+    // get the selected option
+    let selectObj = document.getElementById('purpose');
+    let idx = selectObj.selectedIndex;
+    let which = selectObj.options[idx].value;
+
+    // use the selected option value to manipulate the DOM
+    if(which=='Other') {
+        document.getElementById('otherPurpose').style.display = 'inline';
+    }
+    else {
+        document.getElementById('otherPurpose').style.display = 'none';
+    }
+  }
+  
+   // Function to check if 'Other' activity is selected
+  function checkOtherActivity() {
+    // get the selected option
+    let selectObjYes = document.getElementById('otherActivityYes');
+    let selectObjNo = document.getElementById('otherActivityNo');
+
+    // use the selected option value to manipulate the DOM
+    if(selectObjYes.checked) {
+        document.getElementById('otherActivityDetails').style.display = 'inline';
+    }
+    else if(selectObjNo.checked) {
+        document.getElementById('otherActivityDetails').style.display = 'none';
+    }
+  }
+
+</script>
+</body>
+</html>
