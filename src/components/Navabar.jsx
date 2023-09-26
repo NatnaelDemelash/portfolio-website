@@ -5,6 +5,7 @@ import { CgMenuRight, CgClose } from "react-icons/cg";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { Link } from "react-scroll";
+import resume from "../assets/resume.pdf";
 
 const Navabr = () => {
   const [nav, setNav] = useState(false);
@@ -122,7 +123,10 @@ const Navabr = () => {
             </a>
           </li>
           <li className="flex w-[160px] h-[45px] justify-between items-center bg-[#0097B2] ml-[-100px] duration-300 hover:ml-[-7px]">
-            <a href="#" className=" flex justify-around items-center w-full">
+            <a
+              href={resume}
+              className=" flex justify-around items-center w-full"
+            >
               Resume
               <BsPersonLinesFill size={20} />
             </a>
