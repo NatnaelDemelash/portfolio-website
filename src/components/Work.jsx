@@ -1,6 +1,7 @@
 import omnifood from "../assets/omnifood.png";
 import ethioAxel from "../assets/ethioAxel.png";
 import qrCode from "../assets/proj-3.jpg";
+import githubFinder from "../assets/githubFinder.png";
 import { BsGithub } from "react-icons/bs";
 
 const Work = () => {
@@ -111,6 +112,40 @@ const Work = () => {
                 </a>
                 <a
                   href="https://github.com/NatnaelDemelash/QR-Code-Generator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-[#0a192f] py-2 px-4 rounded-md hover:scale-110 duration-300">
+                    <BsGithub size={20} />
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Project -4 */}
+          <div className="bg-[#0097B2] shadow-sm shadow-[#040c16] text-white rounded-md mx-auto flex flex-col overflow-hidden items-center content-div">
+            <div>
+              <img src={githubFinder} alt="proj image" />
+            </div>
+            <div className="max-w-[400px] mx-auto text-center py-6">
+              <h3 className="text-2xl font-bold pb-2">GitHub Finder</h3>
+              <p className="text-sm pb-4">
+                A simple React and Tailwind CSS app to search Github users
+                account and display their info.
+              </p>
+              <div className="flex justify-center items-center gap-4">
+                <a
+                  href="https://githubacc-finder.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-[#0a192f] py-2 px-16 rounded-md hover:scale-110 duration-300">
+                    Demo
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/NatnaelDemelash/github-finder"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
