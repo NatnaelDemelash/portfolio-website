@@ -1,6 +1,6 @@
 import omnifood from "../assets/omnifood.png";
 import ethioAxel from "../assets/ethioAxel.png";
-import qrCode from "../assets/proj-3.jpg";
+import qrCode from "../assets/qrCode.png";
 import githubFinder from "../assets/githubFinder.png";
 import { BsGithub } from "react-icons/bs";
 
