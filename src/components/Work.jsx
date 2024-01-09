@@ -70,8 +70,7 @@ const Work = () => {
               </p>
               <div className="flex justify-center items-center gap-4">
                 <a
-                  href="aurora-aisel-shop.vercel.app
-                  "
+                  href="https://aurora-aisel-shop.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
