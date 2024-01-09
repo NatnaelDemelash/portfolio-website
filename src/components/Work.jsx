@@ -1,5 +1,5 @@
 import omnifood from "../assets/omnifood.png";
-import ethioAxel from "../assets/ethioAxel.png";
+import aurora from "../assets/aurora_aiesel.png";
 import qrCode from "../assets/qrCode.png";
 import movieApp from "../assets/rottenApple.png";
 import { BsGithub } from "react-icons/bs";
@@ -58,17 +58,20 @@ const Work = () => {
           {/* Project -2 */}
           <div className="bg-[#0097B2] shadow-sm shadow-[#040c16] text-white rounded-md mx-auto flex flex-col overflow-hidden items-center content-div">
             <div>
-              <img src={ethioAxel} alt="proj image" />
+              <img src={aurora} alt="proj image" />
             </div>
             <div className="max-w-[400px] mx-auto text-center py-6">
-              <h3 className="text-2xl font-bold pb-2">EthioAxel DA</h3>
+              <h3 className="text-2xl font-bold pb-2">
+                Aurora Aisel- Shopping Mart
+              </h3>
               <p className="text-sm pb-4">
-                A Landing page for a Data analytics company that is based in
-                Ethiopia
+                An Ecommerce app built with React.js using react context -(
+                FakeStore API) for data fetching/backend
               </p>
               <div className="flex justify-center items-center gap-4">
                 <a
-                  href="https://ethioaxel.netlify.app"
+                  href="aurora-aisel-shop.vercel.app
+                  "
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -77,7 +80,7 @@ const Work = () => {
                   </button>
                 </a>
                 <a
-                  href="https://github.com/NatnaelDemelash/EthioAxel"
+                  href="https://github.com/NatnaelDemelash/aurora_aisel_shop"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
