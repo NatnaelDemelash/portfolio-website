@@ -1,6 +1,6 @@
 import omnifood from "../assets/omnifood.png";
 import aurora from "../assets/aurora_aiesel.png";
-import qrCode from "../assets/qrCode.png";
+import pizzeria from "../assets/pizzeria.png";
 import movieApp from "../assets/rottenApple.png";
 import { BsGithub } from "react-icons/bs";
 
@@ -56,7 +56,10 @@ const Work = () => {
           </div>
 
           {/* Project -2 */}
-          <div className="bg-[#0097B2] shadow-sm shadow-[#040c16] text-white rounded-md mx-auto flex flex-col overflow-hidden items-center content-div">
+          <div
+            className="bg-[#0097B2] shadow-sm shadow-[#040c16] text-white rounded-md mx-auto flex flex-col 
+          overflow-hidden items-center content-div"
+          >
             <div>
               <img src={aurora} alt="proj image" />
             </div>
@@ -94,17 +97,17 @@ const Work = () => {
           {/* Project -3 */}
           <div className="bg-[#0097B2] shadow-sm shadow-[#040c16] text-white rounded-md mx-auto flex flex-col overflow-hidden items-center content-div">
             <div>
-              <img src={qrCode} alt="proj image" />
+              <img src={pizzeria} alt="proj image" />
             </div>
             <div className="max-w-[400px] mx-auto text-center py-6">
-              <h3 className="text-2xl font-bold pb-2">QR Code Generator</h3>
+              <h3 className="text-2xl font-bold pb-2">Pizzeria Pizza</h3>
               <p className="text-sm pb-4">
-                A simple QR Code generator app with JavaScript, QRcode.js and
-                Tailwind CSS
+                Pizza ordering website .Users can browse through a variety of
+                pizza options, select their preferred menu
               </p>
               <div className="flex justify-center items-center gap-4">
                 <a
-                  href="https://create-qrcode1.netlify.app/"
+                  href="https://pizzeria101.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -113,7 +116,7 @@ const Work = () => {
                   </button>
                 </a>
                 <a
-                  href="https://github.com/NatnaelDemelash/QR-Code-Generator"
+                  href="https://github.com/NatnaelDemelash/pizzeria_pizza"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
